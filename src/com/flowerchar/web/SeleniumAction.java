@@ -3,6 +3,7 @@ package com.flowerchar.web;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -62,7 +63,7 @@ public class SeleniumAction {
 	}
 	
 	public void Radio() {
-		driver.get("http://www.imooc.com/user/setprofile");
+//		driver.get("http://www.imooc.com/user/setprofile");
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -93,14 +94,31 @@ public class SeleniumAction {
 			e.printStackTrace();
 		}
 		driver.close();
+		
+		
+	}
+	
+	
+	public void Button() {
+		String jsString = "document.getElementsByClassName('moco-btn-lg')[0].style.display='None'";
+		WebElement button = driver.findElement(By.className("moco-btn-lg"));
+		System.out.println(button.isEnabled());
+		System.out.println(button.isDisplayed());
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript(jsString);
+		System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaa");
+		WebElement button1 = driver.findElement(By.className("moco-btn-lg"));
+		System.out.println(button1.isEnabled());
+		System.out.println(button1.isDisplayed());
 	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		SeleniumAction s = new SeleniumAction();
 		s.InitDriver();
-		s.InputElement();
-		s.Radio();
+//		s.InputElement();
+//		s.Radio();
+		s.Button();
 	}
 
 }
