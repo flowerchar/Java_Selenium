@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 public class SeleniumAction {
     public WebDriver driver;
@@ -98,6 +99,29 @@ public class SeleniumAction {
 		
 	}
 	
+	public void UpFile() {
+		driver.get("http://www.imooc.com/user/setprofile");
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		WebElement PIC = driver.findElement(By.className("avator-img"));
+		Actions action = new Actions(driver);
+		action.moveToElement(PIC).perform();
+		driver.findElement(By.className("js-avator-link")).click();;
+		driver.findElement(By.id("upload")).sendKeys("D:\\desktop\\pictures\\images\\blue.png");
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		driver.close();
+	}
+	
 	
 	public void Button() {
 		String jsString = "document.getElementsByClassName('moco-btn-lg')[0].style.display='None'";
@@ -116,9 +140,10 @@ public class SeleniumAction {
 		// TODO Auto-generated method stub
 		SeleniumAction s = new SeleniumAction();
 		s.InitDriver();
-//		s.InputElement();
+		s.InputElement();
 //		s.Radio();
-		s.Button();
+//		s.Button();
+		s.UpFile();
 	}
 
 }
