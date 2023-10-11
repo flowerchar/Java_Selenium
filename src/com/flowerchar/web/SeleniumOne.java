@@ -10,11 +10,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 //import org.openqa.selenium.WebDriver;
 public class SeleniumOne {
 	
-	WebDriver driver;
-	
+    public WebDriver driver;
 	public void InitDriver() {
 		System.setProperty("webdriver.chrome.driver", "D:\\something\\chromedriver\\118\\chromedriver.exe"); 
-		driver = new ChromeDriver();
+		WebDriver driver = new ChromeDriver();
 		driver.get("http://www.imooc.com");
 		try {
 			Thread.sleep(3000);
@@ -32,8 +31,8 @@ public class SeleniumOne {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		driver.findElement(By.name("email")).sendKeys("19822636863");
-		driver.findElement(By.className("js-loginPassword")).sendKeys("qh010119");
+		driver.findElement(By.name("email")).sendKeys("198xxxxxx");
+		driver.findElement(By.className("js-loginPassword")).sendKeys("qh0xxxxx");
 		WebElement NodeElement = driver.findElement(By.className("rlf-autoin"));
 		NodeElement.findElement(By.tagName("input")).click();
 		List<WebElement> ButtonElement =  driver.findElements(By.className("rlf-group"));
