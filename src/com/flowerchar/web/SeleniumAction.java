@@ -1,5 +1,7 @@
 package com.flowerchar.web;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,11 +16,31 @@ public class SeleniumAction {
 
 	}
 
+//	public void InputElement() {
+//		WebElement EmailElment = driver.findElement(By.name("email"));
+//		System.out.println(EmailElment);
+//		String userinfo = EmailElment.getAttribute("placeholder");
+//		EmailElment.sendKeys("55555");
+//		try {
+//			Thread.sleep(3000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+////		EmailElment.clear();
+//		System.out.println(userinfo);
+//		String mobile = EmailElment.getAttribute("value");
+//		System.out.println(mobile);
+//		boolean info = EmailElment.isEnabled();
+//		System.out.println(info);
+//		driver.close();
+//	}
 	public void InputElement() {
 		WebElement EmailElment = driver.findElement(By.name("email"));
 		System.out.println(EmailElment);
 		String userinfo = EmailElment.getAttribute("placeholder");
-		EmailElment.sendKeys("55555");
+		EmailElment.sendKeys("19822636863");
+		driver.findElement(By.name("password")).sendKeys("qh010119");
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -26,11 +48,50 @@ public class SeleniumAction {
 			e.printStackTrace();
 		}
 //		EmailElment.clear();
-		System.out.println(userinfo);
+        driver.findElement(By.className("moco-btn-red")).click();
 		String mobile = EmailElment.getAttribute("value");
-		System.out.println(mobile);
+
 		boolean info = EmailElment.isEnabled();
-		System.out.println(info);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+//		driver.close();
+	}
+	
+	public void Radio() {
+		driver.get("http://www.imooc.com/user/setprofile");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		driver.findElement(By.className("js-edit-info")).click();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		WebElement userform = driver.findElement(By.id("profile"));
+		List<WebElement> SexList = userform.findElements(By.name("sex"));
+//		List<WebElement> SexList = driver.findElements(By.name("sex"));
+		for(WebElement e:SexList) {
+			if(e.isSelected()) {
+				break;
+			}else {
+				e.click();
+			}
+		}
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		driver.close();
 	}
 	
@@ -39,6 +100,7 @@ public class SeleniumAction {
 		SeleniumAction s = new SeleniumAction();
 		s.InitDriver();
 		s.InputElement();
+		s.Radio();
 	}
 
 }
