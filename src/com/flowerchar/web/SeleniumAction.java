@@ -224,6 +224,31 @@ public class SeleniumAction {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		downlist.selectByValue("5");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		downlist.selectByVisibleText("交互设计师");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+//		downlist.deselectByVisibleText("交互设计师");
+		List<WebElement> options = downlist.getAllSelectedOptions();
+		for(WebElement e: options) {
+			System.out.println(e.getText());
+		}
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		driver.close();
 	}
 	
@@ -240,15 +265,32 @@ public class SeleniumAction {
 		System.out.println(button1.isDisplayed());
 	}
 	
+	public void MoseAction() {
+		driver.get("https://www.imooc.com/");
+		Actions moseactions = new Actions(driver);
+		List<WebElement> list = driver.findElements(By.className("item"));
+		WebElement mobile = list.get(0);
+		moseactions.moveToElement(mobile).perform();
+		driver.findElement(By.linkText("小程序")).click();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		driver.close();
+	}
+	
 	public static void main(String[] args) throws AWTException {
 		// TODO Auto-generated method stub
 		SeleniumAction s = new SeleniumAction();
 		s.InitDriver();
-		s.InputElement();
+//		s.InputElement();
 //		s.Radio();
 //		s.Button();
 //		s.UpFile2();
-		s.SelectOption1();
+//		s.SelectOption1();
+		s.MoseAction();
 	}
 
 }
