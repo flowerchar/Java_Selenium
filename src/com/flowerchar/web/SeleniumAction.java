@@ -8,6 +8,7 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -15,7 +16,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SeleniumAction {
     public WebDriver driver;
@@ -352,6 +355,18 @@ public class SeleniumAction {
 //		driver.switchTo().alert().dismiss();
 //		driver.switchTo().alert().sendKeys(xx);
 //		driver.navigate().refresh();
+//	}
+	
+//	public void Wait() {
+////		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+//		WebDriverWait wait = new WebDriverWait(driver, 1);
+//		try {
+//			wait.until(ExpectedConditions.presenceOfElementLocated(By.id("asd")));
+//		}catch (Exception e) {
+//			// TODO: handle exception
+//		}
+//		driver.close();
+//		
 //	}
 	public static void main(String[] args) throws AWTException {
 		// TODO Auto-generated method stub
