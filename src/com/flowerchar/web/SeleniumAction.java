@@ -281,16 +281,40 @@ public class SeleniumAction {
 		driver.close();
 	}
 	
+	public void SwitchIframe() {
+		Actions moseactions = new Actions(driver);
+		driver.get("https://www.imooc.com/article/publish#");
+		
+		try {
+			Thread.sleep(8000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		WebElement Iframe = driver.findElement(By.id("ueditor_0"));
+		driver.switchTo().frame(Iframe);
+		WebElement p = driver.findElement(By.tagName("p"));
+		moseactions.moveToElement(p).click().sendKeys("ssdasdas").perform();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		driver.close();
+	}
+	
 	public static void main(String[] args) throws AWTException {
 		// TODO Auto-generated method stub
 		SeleniumAction s = new SeleniumAction();
 		s.InitDriver();
-//		s.InputElement();
+		s.InputElement();
 //		s.Radio();
 //		s.Button();
 //		s.UpFile2();
 //		s.SelectOption1();
-		s.MoseAction();
+//		s.MoseAction();
+		s.SwitchIframe();
 	}
 
 }
