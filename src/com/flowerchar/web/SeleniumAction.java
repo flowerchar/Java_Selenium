@@ -1,5 +1,11 @@
 package com.flowerchar.web;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -99,7 +105,7 @@ public class SeleniumAction {
 		
 	}
 	
-	public void UpFile() {
+	public void UpFile1() {
 		driver.get("http://www.imooc.com/user/setprofile");
 		try {
 			Thread.sleep(1000);
@@ -122,6 +128,50 @@ public class SeleniumAction {
 		driver.close();
 	}
 	
+	public void UpFile2() throws AWTException {
+		driver.get("http://www.imooc.com/user/setprofile");
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		WebElement PIC = driver.findElement(By.className("avator-img"));
+		Actions action = new Actions(driver);
+		action.moveToElement(PIC).perform();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		driver.findElement(By.className("js-avator-link")).click();
+		driver.findElement(By.className("avator-btn-fake")).click();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+//		driver.findElement(By.id("upload")).sendKeys("D:\\desktop\\pictures\\images\\blue.png");
+		StringSelection selectpng = new StringSelection("D:\\desktop\\pictures\\images\\blue.png");
+        Clipboard sysc = Toolkit.getDefaultToolkit().getSystemClipboard();
+        sysc.setContents(selectpng, null);
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+        robot.keyRelease(KeyEvent.VK_V);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		driver.close();
+	}
 	
 	public void Button() {
 		String jsString = "document.getElementsByClassName('moco-btn-lg')[0].style.display='None'";
@@ -136,14 +186,14 @@ public class SeleniumAction {
 		System.out.println(button1.isDisplayed());
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws AWTException {
 		// TODO Auto-generated method stub
 		SeleniumAction s = new SeleniumAction();
 		s.InitDriver();
 		s.InputElement();
 //		s.Radio();
 //		s.Button();
-		s.UpFile();
+		s.UpFile2();
 	}
 
 }
