@@ -172,6 +172,32 @@ public class SeleniumAction {
 		}
 		driver.close();
 	}
+	public void SelectOption() {
+		driver.get("http://www.imooc.com/user/setprofile");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		driver.findElement(By.className("js-edit-info")).click();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		WebElement userform = driver.findElement(By.id("profile"));
+		userform.findElement(By.id("job")).click();
+		userform.findElements(By.tagName("option")).get(5).click();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		driver.close();
+	}
 	
 	public void Button() {
 		String jsString = "document.getElementsByClassName('moco-btn-lg')[0].style.display='None'";
@@ -193,7 +219,8 @@ public class SeleniumAction {
 		s.InputElement();
 //		s.Radio();
 //		s.Button();
-		s.UpFile2();
+//		s.UpFile2();
+		s.SelectOption();
 	}
 
 }
