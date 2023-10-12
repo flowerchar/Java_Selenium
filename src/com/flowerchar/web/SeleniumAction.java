@@ -14,6 +14,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 public class SeleniumAction {
     public WebDriver driver;
@@ -198,6 +199,33 @@ public class SeleniumAction {
 		}
 		driver.close();
 	}
+	public void SelectOption1() {
+		driver.get("http://www.imooc.com/user/setprofile");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		driver.findElement(By.className("js-edit-info")).click();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		WebElement userform = driver.findElement(By.id("profile"));
+		WebElement job = userform.findElement(By.id("job"));
+		Select downlist = new Select(job);
+		downlist.selectByIndex(8);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		driver.close();
+	}
 	
 	public void Button() {
 		String jsString = "document.getElementsByClassName('moco-btn-lg')[0].style.display='None'";
@@ -220,7 +248,7 @@ public class SeleniumAction {
 //		s.Radio();
 //		s.Button();
 //		s.UpFile2();
-		s.SelectOption();
+		s.SelectOption1();
 	}
 
 }
