@@ -318,18 +318,18 @@ public class SeleniumAction {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//		Set<String> Handles = driver.getWindowHandles();
-//		System.out.println(Handles);
-//		String Current = driver.getWindowHandle();
-//		System.out.println(Current);
-//		
-//		for(String s: Handles) {
-//			if(s.equals(Current)) {
-//				continue;
-//			}else {
-//				driver.switchTo().window(s);
-//			}
-//		}
+		Set<String> Handles = driver.getWindowHandles();
+		System.out.println(Handles);
+		String Current = driver.getWindowHandle();
+		System.out.println(Current);
+		
+		for(String s: Handles) {
+			if(s.equals(Current)) {
+				continue;
+			}else {
+				driver.switchTo().window(s);
+			}
+		}
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -346,6 +346,13 @@ public class SeleniumAction {
 		driver.close();
 	}
 	
+//	public void AlertWindows() {
+//		driver.findElement(By.id(xxxx));
+//		driver.switchTo().alert().accept();
+//		driver.switchTo().alert().dismiss();
+//		driver.switchTo().alert().sendKeys(xx);
+//		driver.navigate().refresh();
+//	}
 	public static void main(String[] args) throws AWTException {
 		// TODO Auto-generated method stub
 		SeleniumAction s = new SeleniumAction();
