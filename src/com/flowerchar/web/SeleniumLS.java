@@ -12,7 +12,7 @@ import org.openqa.selenium.interactions.Actions;
 
 public class SeleniumLS {
 	
-	public static Integer ms=4000;
+	public static Integer ms=2000;
 	public static void SLEEP(Integer time) {
 		if(time==null) {
 			try {
