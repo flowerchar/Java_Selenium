@@ -25,19 +25,19 @@ public class Example {
     		Thread.sleep(5000);
     		driver.findElement(By.className("i-select")).click();
     		Thread.sleep(1500);
-    		driver.findElement(By.xpath("/html/body/div[1]/section/header/div/div/div[2]/div[1]/div[2]/section/div/div[2]/div[1]/div[2]/div[3]/div")).click();//2广州
+    		driver.findElement(By.xpath("/html/body/div[1]/section/header/div/div/div[2]/div[1]/div[2]/section/div/div[2]/div[1]/div[2]/div[3]/div")).click();//2骞垮窞
     		Thread.sleep(2500);
-    		driver.findElement(By.linkText("车型库")).click();//
+    		driver.findElement(By.linkText("杞﹀瀷搴�")).click();//
     		Thread.sleep(1500);
     		driver.findElement(By.className("brand-8")).click();//
     		Thread.sleep(1500);
-    		driver.findElement(By.linkText("40万以上")).click();//
+    		driver.findElement(By.linkText("40涓囦互涓�")).click();//
     		Thread.sleep(1500);
-    		driver.findElement(By.linkText("轿车")).click();//
+    		driver.findElement(By.linkText("杞胯溅")).click();//
     		Thread.sleep(1500);
-    		driver.findElement(By.linkText("德国")).click();
+    		driver.findElement(By.linkText("寰峰浗")).click();
     		Thread.sleep(1500);
-    		driver.findElement(By.linkText("价格从高到低")).click();
+    		driver.findElement(By.linkText("浠锋牸浠庨珮鍒颁綆")).click();
     		Thread.sleep(1500);
     		driver.findElement(By.xpath("/html/body/div[1]/section/main/div/section/div[2]/div[2]/div[8]/a/img")).click();//
     		Thread.sleep(1500);
@@ -45,7 +45,7 @@ public class Example {
     		Thread.sleep(500);
     		driver.findElement(By.xpath("/html/body/div[1]/section/main/div/div[2]/div/div/h2[2]")).click();//
     		Thread.sleep(500);
-    		driver.findElement(By.linkText("参数")).click();//
+    		driver.findElement(By.linkText("鍙傛暟")).click();//
     		Thread.sleep(500);
     		driver.switchTo().window(driver.getWindowHandles().toArray()[2].toString());
     		Thread.sleep(1500);
@@ -65,11 +65,11 @@ public class Example {
     		Thread.sleep(1000);
     		driver.switchTo().window(driver.getWindowHandles().toArray()[2].toString());
     		Thread.sleep(1000);
-    		driver.findElement(By.id("tab-内饰")).click();
+    		driver.findElement(By.id("tab-鍐呴グ")).click();
 			Thread.sleep(1000);
-    		driver.findElement(By.id("tab-空间")).click();
+    		driver.findElement(By.id("tab-绌洪棿")).click();
     		Thread.sleep(500);
-    		driver.findElement(By.id("tab-官方图")).click();
+    		driver.findElement(By.id("tab-瀹樻柟鍥�")).click();
     		Thread.sleep(500);
     		driver.findElement(By.xpath("/html/body/div[1]/section/main/div/div[3]/div[2]/div[4]/div/div/ul/li/div[2]/div[1]/img")).click();
     		Thread.sleep(1000);
