@@ -2,7 +2,7 @@ import os
 import pandas as pd
 
 
-def match_and_update_excel(caseNameCol=0, screenshotsCol=9, sourceCsv="预选赛测试用例答案(1).xlsx", screenShots="screenshots"):
+def match_and_update_excel(caseNameCol=0, screenshotsCol=9, sourceCsv="测试用例模版.xlsx", screenShots="screenshots"):
     """
     0.记得先替换默认参数
     1. 将该文件放到与screenshots文件夹一样的路径下
