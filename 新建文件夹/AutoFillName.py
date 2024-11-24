@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-
+import shutil
 
 def match_and_update_excel(caseNameCol=0, screenshotsCol=9, sourceCsv="测试用例模版.xlsx", screenShots="screenshots"):
     """
@@ -44,11 +44,24 @@ def match_and_update_excel(caseNameCol=0, screenshotsCol=9, sourceCsv="测试用
             screenshot_column[index] = ""  # 如果没找到匹配的，设置为空字符串
 
     df.iloc[:, screenshotsCol] = screenshot_column
+    print(screenshot_column)
     # 获取当前时间戳作为新文件名的一部分（这里简化示例，你可以按更精确的需求调整时间戳获取方式）
     timestamp = pd.Timestamp.now().strftime('%Y%m%d%H%M%S')
     new_excel_name = f"{timestamp}.xlsx"
     new_excel_path = os.path.join(current_path, new_excel_name)
     df.to_excel(new_excel_path, index=False)
+
+
+
+    # 复制在新Excel文件截图文件名所在列出现的图片到新文件夹
+    new_folder_name = f"{screenShots}{timestamp}"
+    new_folder_path = os.path.join(current_path, new_folder_name)
+    os.makedirs(new_folder_path)  # 创建新文件夹
+    for screenshot_name in screenshot_column:
+        source_file_path = os.path.join(current_path, screenshots_folder, screenshot_name)
+        target_file_path = os.path.join(new_folder_path, screenshot_name)
+        if os.path.exists(source_file_path):
+            shutil.copy(source_file_path, target_file_path)
 
 
 if __name__ == '__main__':
